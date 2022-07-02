@@ -1,6 +1,7 @@
 package com.example.scotland_yard_board_game.common;
 
 public class Station {
+
     private int id;
     private int x;
     private int y;
