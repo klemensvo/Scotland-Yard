@@ -10,6 +10,7 @@ public class Station {
     private int[] underground;
     private int[] ferry;
 
+    /*
     public Station() {
     }
 
@@ -21,7 +22,7 @@ public class Station {
         this.bus = bus;
         this.underground = underground;
         this.ferry = ferry;
-    }
+    } */
 
     public int getId() {
         return id;

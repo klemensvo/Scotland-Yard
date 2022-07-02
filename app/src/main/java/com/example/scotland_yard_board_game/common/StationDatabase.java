@@ -24,10 +24,10 @@ public class StationDatabase {
 
     public StationDatabase(Context context) {
         this.context = context;
-        builddatabase();
+        buildDatabase();
     }
 
-    private void builddatabase () {
+    private void buildDatabase() {
         this.MrXStart = new int[]{35, 45, 51, 71, 78, 104, 106, 127, 132, 146, 166, 170, 172};
         this.DetectiveStart = new int[]{13, 26, 29, 34, 50, 53, 91, 94, 103, 112, 117, 123, 138, 141, 155, 174};
 
