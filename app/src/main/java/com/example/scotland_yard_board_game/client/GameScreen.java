@@ -751,15 +751,15 @@ public class GameScreen extends AppCompatActivity implements PopupMenu.OnMenuIte
 
 
     int[] getTaxiNeighborStationsFromGivenStation(int station) {
-        return serverDatabase.getStation(station).getTaxiNeighbors();
+        return serverDatabase.getStation(station).getTaxi();
     }
 
     int[] getBusNeighborStationsFromGivenStation(int station) {
-        return serverDatabase.getStation(station).getBusNeighbors();
+        return serverDatabase.getStation(station).getBus();
     }
 
     int[] getUndergroundNeighborStationsFromGivenStation(int station) {
-        return serverDatabase.getStation(station).getUndergroundNeighbors();
+        return serverDatabase.getStation(station).getUnderground();
     }
 
     // was here for testing purposes only

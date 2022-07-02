@@ -4,22 +4,23 @@ public class Station {
     private int id;
     private int x;
     private int y;
-    private int[] taxiNeighbors;
-    private int[] busNeighbors;
-    private int[] undergroundNeighbors;
-    private int[] ferryNeighbors;
+    //Neighbours
+    private int[] taxi;
+    private int[] bus;
+    private int[] underground;
+    private int[] ferry;
 
-    public Station() {} // todo: if commented out, GameScreen crashes
+    public Station() {
+    }
 
-    public Station(int id, int x, int y, int[] taxiNeighbors,
-                   int[] busNeighbors, int[] undergroundNeighbors, int[] ferryNeighbors) {
+    public Station(int id, int x, int y, int[] taxi, int[] bus, int[] underground, int[] ferry) {
         this.id = id;
         this.x = x;
         this.y = y;
-        this.taxiNeighbors = taxiNeighbors;
-        this.busNeighbors = busNeighbors;
-        this.undergroundNeighbors = undergroundNeighbors;
-        this.ferryNeighbors = ferryNeighbors;
+        this.taxi = taxi;
+        this.bus = bus;
+        this.underground = underground;
+        this.ferry = ferry;
     }
 
     public int getId() {
@@ -34,34 +35,33 @@ public class Station {
         return y;
     }
 
-    public int[] getTaxiNeighbors() {
-        return taxiNeighbors;
+    public int[] getTaxi() {
+        return taxi;
     }
 
-    public int[] getBusNeighbors() {
-        return busNeighbors;
+    public int[] getBus() {
+        return bus;
     }
 
-    public int[] getUndergroundNeighbors() {
-        return undergroundNeighbors;
+    public int[] getUnderground() {
+        return underground;
     }
 
-    public int[] getFerryNeighbors() {
-        return ferryNeighbors;
+    public int[] getFerry() {
+        return ferry;
     }
-
 
     public int[] getNeighbours(int type) {
         switch (type) {
 
             case 0:
-                return taxiNeighbors;
+                return taxi;
             case 1:
-                return busNeighbors;
+                return bus;
             case 2:
-                return undergroundNeighbors;
+                return underground;
             case 3:
-                return ferryNeighbors;
+                return ferry;
         }
         return null;
     }
