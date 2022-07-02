@@ -1,6 +1,7 @@
 package com.example.scotland_yard_board_game.common;
 
 public class Station {
+
     private int id;
     private int x;
     private int y;
@@ -10,6 +11,7 @@ public class Station {
     private int[] underground;
     private int[] ferry;
 
+    /*
     public Station() {
     }
 
@@ -21,7 +23,7 @@ public class Station {
         this.bus = bus;
         this.underground = underground;
         this.ferry = ferry;
-    }
+    } */
 
     public int getId() {
         return id;
