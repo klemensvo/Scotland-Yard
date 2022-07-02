@@ -10,11 +10,10 @@ public interface Player {
     Color getColor();
     void setColor(Color color);
 
-
     boolean useItem(int itemid);
     void setPosition(Station position);
 
-    boolean validMove(int stationid, int type);
+    boolean validMove(int stationId, int type);
     int getConnectionId();
     Station getPosition();
 

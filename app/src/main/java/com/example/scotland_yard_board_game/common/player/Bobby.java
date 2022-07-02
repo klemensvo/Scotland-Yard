@@ -9,7 +9,7 @@ public class Bobby {
     private String nickname;
     private Station position;
     private Color color = Color.RAINBOW;
-    private boolean turn;
+    // private boolean turn;
 
     public Bobby(int clientid, String nickname) {
         this.id = clientid;

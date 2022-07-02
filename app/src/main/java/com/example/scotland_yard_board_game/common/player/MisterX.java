@@ -11,10 +11,11 @@ public class MisterX implements Player {
     private int id;
     private int conId;
     private String nickname;
-    private int[] inventory = {2, 0}; //Double move, Black Tickets
+    // todo: change ticketInventory: has a different meaning in Detective...
+    private int[] ticketInventory = {2, 0}; //Double move, Black Tickets
     private Station position;
     private Color color = Color.BLUE; // Colour.TRANSPARENT ; // todo: change to transparent later
-    private boolean turn;
+    // private boolean turn;
     private int moves = 1;
 
     //Kryonet
@@ -30,7 +31,7 @@ public class MisterX implements Player {
 
     //MrX gets as many Double moves as there are detectives -> declared after game start
     public void setDoubleMove(int NumDetectives) {
-        this.inventory[1] = NumDetectives;
+        this.ticketInventory[1] = NumDetectives;
     }
 
     public void setPosition(Station position) {
@@ -41,11 +42,11 @@ public class MisterX implements Player {
         return position;
     }
 
-    public boolean validMove(int stationid, int type) {
+    public boolean validMove(int stationId, int type) {
         int[] neighbours = this.position.getNeighbours(type);
         Log.d(TAG, String.valueOf(neighbours[0]));
         for (int i = 0; i < neighbours.length; i++) {
-            if (neighbours[i] == stationid) {
+            if (neighbours[i] == stationId) {
                 return true; // TODO: 5/5/2022 implement check for black ticket
             }
         }
@@ -56,8 +57,8 @@ public class MisterX implements Player {
     //If item available -> use it, otherwise return false
     public boolean useItem(int itemid) {
 
-        if (this.inventory[itemid] > 0) { // TODO: 4/30/2022 implement double move action
-            this.inventory[itemid] -= 1;
+        if (this.ticketInventory[itemid] > 0) { // TODO: 4/30/2022 implement double move action
+            this.ticketInventory[itemid] -= 1;
             return true;
         }
 

@@ -12,7 +12,7 @@ import com.example.scotland_yard_board_game.common.messages.fromserver.Detective
 import com.example.scotland_yard_board_game.common.messages.fromserver.EndTurn;
 import com.example.scotland_yard_board_game.common.messages.fromserver.InvalidMove;
 import com.example.scotland_yard_board_game.common.messages.fromserver.TravelLog;
-import com.example.scotland_yard_board_game.common.messages.fromserver.MrXWon;
+import com.example.scotland_yard_board_game.common.messages.fromserver.MisterXWon;
 import com.example.scotland_yard_board_game.common.messages.fromserver.PlayerConnected;
 import com.example.scotland_yard_board_game.common.messages.fromserver.PlayerList;
 import com.example.scotland_yard_board_game.common.messages.fromserver.ServerFull;
@@ -57,7 +57,7 @@ public class ClientListener extends Listener {
             clientData.endTurn();
         } else if (object instanceof DetectivesWon) {
             clientData.won(0);
-        } else if (object instanceof MrXWon) {
+        } else if (object instanceof MisterXWon) {
             clientData.won(1);
         }
 

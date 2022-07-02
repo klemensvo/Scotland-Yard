@@ -15,7 +15,7 @@ import com.example.scotland_yard_board_game.common.messages.fromserver.Detective
 import com.example.scotland_yard_board_game.common.messages.fromserver.EndTurn;
 import com.example.scotland_yard_board_game.common.messages.fromserver.InvalidMove;
 import com.example.scotland_yard_board_game.common.messages.fromserver.TravelLog;
-import com.example.scotland_yard_board_game.common.messages.fromserver.MrXWon;
+import com.example.scotland_yard_board_game.common.messages.fromserver.MisterXWon;
 import com.example.scotland_yard_board_game.common.messages.fromserver.NameTaken;
 import com.example.scotland_yard_board_game.common.messages.fromserver.PlayerList;
 import com.example.scotland_yard_board_game.common.messages.fromserver.StartTurn;
@@ -78,11 +78,11 @@ public class ServerData {
         return false;
     }
 
-    //Validates player moves, triggers refresh of journeyTable and starts next players move
-    // todo: continue refactoring here
+    //Validates player moves, triggers refresh of travelLog and starts next players move
     public void move(int connectionId, int stationId, int meansOfTransport, boolean isMisterX) {
         for (Player player : players) {
-            if (player.getConnectionId() == connectionId && player.getConnectionId() == playerOrder[activePlayer]) {
+            if (player.getConnectionId() == connectionId &&
+                    player.getConnectionId() == playerOrder[activePlayer]) {
                 Log.d(TAG, stationId + " " + meansOfTransport);
                 boolean valid = player.validMove(stationId, meansOfTransport);
                 if (valid && stationId != players.get(0).getPosition().getId()) {
@@ -162,11 +162,11 @@ public class ServerData {
     }
 
     //Remove disconnected player from clients
-    public void disconnectPlayer(int conid) {
+    public void disconnectPlayer(int connectionId) {
         if (!players.isEmpty()) {
-            for (Player a : players) {
-                if (a.getConnectionId() == conid) {
-                    players.remove(a.getId());
+            for (Player player : players) {
+                if (player.getConnectionId() == connectionId) {
+                    players.remove(player.getId());
                 }
             }
             updatePlayerList();
@@ -181,7 +181,7 @@ public class ServerData {
         if (activePlayer >= playerOrder.length && misterXTurns != travelLog.travelLog.length - 1) {
             activePlayer = 0;
         } else if (misterXTurns == travelLog.travelLog.length - 1) {
-            server.sendToAllTCP(new MrXWon());
+            server.sendToAllTCP(new MisterXWon());
         }
         server.sendToTCP(playerOrder[activePlayer], new StartTurn());
     }

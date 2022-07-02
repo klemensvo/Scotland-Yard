@@ -10,7 +10,7 @@ import com.example.scotland_yard_board_game.common.messages.fromserver.InvalidMo
 import com.example.scotland_yard_board_game.common.messages.fromserver.TravelLog;
 import com.example.scotland_yard_board_game.common.messages.fromclient.Move;
 import com.example.scotland_yard_board_game.common.messages.fromclient.MrXNickname;
-import com.example.scotland_yard_board_game.common.messages.fromserver.MrXWon;
+import com.example.scotland_yard_board_game.common.messages.fromserver.MisterXWon;
 import com.example.scotland_yard_board_game.common.messages.fromserver.NameTaken;
 import com.example.scotland_yard_board_game.common.messages.fromserver.PlayerConnected;
 import com.example.scotland_yard_board_game.common.messages.fromserver.PlayerJoined;
@@ -49,7 +49,7 @@ public class KryoRegister {
         kryo.register(StartTurn.class);
         kryo.register(EndTurn.class);
         kryo.register(NameTaken.class);
-        kryo.register(MrXWon.class);
+        kryo.register(MisterXWon.class);
         kryo.register(DetectivesWon.class);
 
     }

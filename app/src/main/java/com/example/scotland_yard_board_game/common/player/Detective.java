@@ -5,21 +5,21 @@ import com.example.scotland_yard_board_game.common.Station;
 
 public class Detective implements Player {
     private int id;
-    private int conId;
+    private int connectionId;
     private String nickname;
-    private int[] inventory = {10, 8, 4}; //Taxi, Bus, Underground
+    private int[] ticketInventory = {10, 8, 4}; //Taxi, Bus, Underground
     private Station position;
     private Color color;
-    private boolean turn;
+    // private boolean turn;
     private int moves = 1;
 
     //Kryonet
     public Detective() {
     }
 
-    public Detective(int clientid, int conId, String nickname) {
+    public Detective(int clientid, int connectionId, String nickname) {
         this.id = clientid;
-        this.conId = conId;
+        this.connectionId = connectionId;
         this.nickname = nickname;
     }
 
@@ -27,10 +27,10 @@ public class Detective implements Player {
         this.color = color;
     }
 
-    public boolean validMove(int stationid, int type) { //Validate if station is neighbour and if sufficient tickets are available
+    public boolean validMove(int stationId, int type) { //Validate if station is neighbour and if sufficient tickets are available
         int[] neighbours = this.position.getNeighbours(type);
         for (int i = 0; i < neighbours.length; i++) {
-            if (neighbours[i] == stationid) {
+            if (neighbours[i] == stationId) {
                 switch (type) {
                     case 0:
                         return useItem(0);
@@ -55,8 +55,8 @@ public class Detective implements Player {
     //If item available -> use it, otherwise return false
     public boolean useItem(int itemid) {
 
-        if (this.inventory[itemid] > 0) {
-            this.inventory[itemid] -= 1;
+        if (this.ticketInventory[itemid] > 0) {
+            this.ticketInventory[itemid] -= 1;
             return true;
         }
 
@@ -84,6 +84,6 @@ public class Detective implements Player {
     }
 
     public int getConnectionId() {
-        return conId;
+        return connectionId;
     }
 }
