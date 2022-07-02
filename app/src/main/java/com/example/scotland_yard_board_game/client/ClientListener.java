@@ -7,11 +7,11 @@ import com.esotericsoftware.kryonet.FrameworkMessage;
 import com.esotericsoftware.kryonet.Listener;
 import com.esotericsoftware.minlog.Log;
 import com.example.scotland_yard_board_game.common.messages.GameStart;
-import com.example.scotland_yard_board_game.common.messages.fromserver.ColourTaken;
+import com.example.scotland_yard_board_game.common.messages.fromserver.ColorTaken;
 import com.example.scotland_yard_board_game.common.messages.fromserver.DetectivesWon;
 import com.example.scotland_yard_board_game.common.messages.fromserver.EndTurn;
 import com.example.scotland_yard_board_game.common.messages.fromserver.InvalidMove;
-import com.example.scotland_yard_board_game.common.messages.fromserver.JourneyTable;
+import com.example.scotland_yard_board_game.common.messages.fromserver.TravelLog;
 import com.example.scotland_yard_board_game.common.messages.fromserver.MrXWon;
 import com.example.scotland_yard_board_game.common.messages.fromserver.PlayerConnected;
 import com.example.scotland_yard_board_game.common.messages.fromserver.PlayerList;
@@ -37,12 +37,12 @@ public class ClientListener extends Listener {
 
         if (object instanceof ServerFull) {
             clientData.serverFull();
-        } else if (object instanceof ColourTaken) {
+        } else if (object instanceof ColorTaken) {
             clientData.colourTaken();
         } else if (object instanceof InvalidMove) {
             clientData.invalidMove();
-        } else if (object instanceof JourneyTable) {
-            JourneyTable jtable = (JourneyTable) object;
+        } else if (object instanceof TravelLog) {
+            TravelLog jtable = (TravelLog) object;
             clientData.updateJourneyTable(jtable);
         } else if (object instanceof PlayerConnected) {
             Log.debug(TAG, "Connection successfull");

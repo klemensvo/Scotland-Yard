@@ -4,7 +4,7 @@ import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.FrameworkMessage;
 import com.esotericsoftware.kryonet.Listener;
 import com.esotericsoftware.minlog.Log;
-import com.example.scotland_yard_board_game.common.Colour;
+import com.example.scotland_yard_board_game.common.Color;
 import com.example.scotland_yard_board_game.common.messages.fromclient.DetectiveNickname;
 import com.example.scotland_yard_board_game.common.messages.GameStart;
 import com.example.scotland_yard_board_game.common.messages.fromclient.Move;
@@ -59,10 +59,10 @@ public class ServerListener extends Listener {
                 Move move = (Move) object;
                 Log.debug("Moving " + connection.getID() + "to stationid " + move.station);
                 serverData.move(connection.getID(), move.station, move.type, move.mrx);
-            } else if (object instanceof Colour) {
-                Colour colour = (Colour) object;
-                Log.debug("Player " + connection.getID() + "selected colour " + colour);
-                serverData.playercolour(colour,connection.getID());
+            } else if (object instanceof Color) {
+                Color color = (Color) object;
+                Log.debug("Player " + connection.getID() + "selected colour " + color);
+                serverData.playerColor(color,connection.getID());
             }
         }
 

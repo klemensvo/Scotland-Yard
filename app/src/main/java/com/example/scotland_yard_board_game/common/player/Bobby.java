@@ -1,6 +1,6 @@
 package com.example.scotland_yard_board_game.common.player;
 
-import com.example.scotland_yard_board_game.common.Colour;
+import com.example.scotland_yard_board_game.common.Color;
 import com.example.scotland_yard_board_game.common.Station;
 
 // this class is unused
@@ -8,7 +8,7 @@ public class Bobby {
     private int id;
     private String nickname;
     private Station position;
-    private Colour colour = Colour.RAINBOW;
+    private Color color = Color.RAINBOW;
     private boolean turn;
 
     public Bobby(int clientid, String nickname) {

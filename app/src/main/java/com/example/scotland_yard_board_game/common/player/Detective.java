@@ -1,6 +1,6 @@
 package com.example.scotland_yard_board_game.common.player;
 
-import com.example.scotland_yard_board_game.common.Colour;
+import com.example.scotland_yard_board_game.common.Color;
 import com.example.scotland_yard_board_game.common.Station;
 
 public class Detective implements Player {
@@ -9,7 +9,7 @@ public class Detective implements Player {
     private String nickname;
     private int[] inventory = {10, 8, 4}; //Taxi, Bus, Underground
     private Station position;
-    private Colour colour;
+    private Color color;
     private boolean turn;
     private int moves = 1;
 
@@ -23,8 +23,8 @@ public class Detective implements Player {
         this.nickname = nickname;
     }
 
-    public void setColour(Colour colour) {
-        this.colour = colour;
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     public boolean validMove(int stationid, int type) { //Validate if station is neighbour and if sufficient tickets are available
@@ -67,8 +67,8 @@ public class Detective implements Player {
         return nickname;
     }
 
-    public Colour getColour() {
-        return colour;
+    public Color getColor() {
+        return color;
     }
 
     public int getId() {

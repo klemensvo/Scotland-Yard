@@ -6,12 +6,12 @@ import android.content.Context;
 import android.util.Log;
 
 import com.esotericsoftware.kryonet.Client;
-import com.example.scotland_yard_board_game.common.Colour;
+import com.example.scotland_yard_board_game.common.Color;
 import com.example.scotland_yard_board_game.common.StationDatabase;
 import com.example.scotland_yard_board_game.common.messages.GameStart;
 import com.example.scotland_yard_board_game.common.messages.fromclient.DetectiveNickname;
 import com.example.scotland_yard_board_game.common.messages.fromclient.MrXNickname;
-import com.example.scotland_yard_board_game.common.messages.fromserver.JourneyTable;
+import com.example.scotland_yard_board_game.common.messages.fromserver.TravelLog;
 import com.example.scotland_yard_board_game.common.messages.fromclient.Move;
 import com.example.scotland_yard_board_game.common.messages.fromserver.PlayerList;
 import com.example.scotland_yard_board_game.common.player.Player;
@@ -25,7 +25,7 @@ public class ClientData {
     private StationDatabase stationDatabase;
     private ArrayList<Player> players = new ArrayList<>(6);
     private boolean started = false;
-    private JourneyTable journeyTable = new JourneyTable();
+    private TravelLog travelLog = new TravelLog();
     private boolean ownturn = false;
     private boolean mrx;
     private String[] nicknames = new String[6];
@@ -35,7 +35,7 @@ public class ClientData {
     public ClientData(Context context, Client client, boolean mrx) {
         this.client = client;
         this.mrx = mrx;
-        journeyTable.journeyTable = new int[24][2];
+        travelLog.travelLog = new int[24][2];
         this.stationDatabase = new StationDatabase(context);
     }
 
@@ -87,8 +87,8 @@ public class ClientData {
     }
 
     //Player chooses colour -> server checks if available
-    public void chooseColour(Colour colour) {
-        client.sendTCP(colour);
+    public void chooseColour(Color color) {
+        client.sendTCP(color);
     }
 
     public void colourTaken() {
@@ -122,8 +122,8 @@ public class ClientData {
         }
     }
 
-    public void updateJourneyTable(JourneyTable jtable) {
-        this.journeyTable = jtable;
+    public void updateJourneyTable(TravelLog jtable) {
+        this.travelLog = jtable;
 
     }
 

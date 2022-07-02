@@ -1,13 +1,13 @@
 package com.example.scotland_yard_board_game.common;
 
 import com.esotericsoftware.kryo.Kryo;
-import com.example.scotland_yard_board_game.common.messages.fromserver.ColourTaken;
+import com.example.scotland_yard_board_game.common.messages.fromserver.ColorTaken;
 import com.example.scotland_yard_board_game.common.messages.fromclient.DetectiveNickname;
 import com.example.scotland_yard_board_game.common.messages.GameStart;
 import com.example.scotland_yard_board_game.common.messages.fromserver.DetectivesWon;
 import com.example.scotland_yard_board_game.common.messages.fromserver.EndTurn;
 import com.example.scotland_yard_board_game.common.messages.fromserver.InvalidMove;
-import com.example.scotland_yard_board_game.common.messages.fromserver.JourneyTable;
+import com.example.scotland_yard_board_game.common.messages.fromserver.TravelLog;
 import com.example.scotland_yard_board_game.common.messages.fromclient.Move;
 import com.example.scotland_yard_board_game.common.messages.fromclient.MrXNickname;
 import com.example.scotland_yard_board_game.common.messages.fromserver.MrXWon;
@@ -18,7 +18,7 @@ import com.example.scotland_yard_board_game.common.messages.fromserver.PlayerLis
 import com.example.scotland_yard_board_game.common.messages.fromserver.ServerFull;
 import com.example.scotland_yard_board_game.common.messages.fromserver.StartTurn;
 import com.example.scotland_yard_board_game.common.player.Detective;
-import com.example.scotland_yard_board_game.common.player.MrX;
+import com.example.scotland_yard_board_game.common.player.MisterX;
 
 // This class registers all needed messages for Kryo
 
@@ -37,11 +37,11 @@ public class KryoRegister {
         kryo.register(GameStart.class);
         kryo.register(Move.class);
         kryo.register(InvalidMove.class);
-        kryo.register(ColourTaken.class);
-        kryo.register(Colour.class);
-        kryo.register(JourneyTable.class);
+        kryo.register(ColorTaken.class);
+        kryo.register(Color.class);
+        kryo.register(TravelLog.class);
         kryo.register(java.util.ArrayList.class);
-        kryo.register(MrX.class);
+        kryo.register(MisterX.class);
         kryo.register(Detective.class);
         kryo.register(int[].class);
         kryo.register(Station.class);

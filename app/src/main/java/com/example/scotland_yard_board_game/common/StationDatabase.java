@@ -43,44 +43,45 @@ public class StationDatabase {
         }
         //Use gson library to convert String to Station objects
         Gson gson = new Gson();
-        Type StationListType = new TypeToken<ArrayList<Station>>(){}.getType();
+        Type StationListType = new TypeToken<ArrayList<Station>>() {
+        }.getType();
         this.stationList = gson.fromJson(json, StationListType);
-        Log.d(TAG,"Stations loaded successfully!");
+        Log.d(TAG, "Stations loaded successfully!");
     }
 
-    public Station getStation(int id){
-        for (Station station: stationList) {
-          if( station.getId() == id){
-              return station;
-          }
+    public Station getStation(int id) {
+        for (Station station : stationList) {
+            if (station.getId() == id) {
+                return station;
+            }
         }
         return null;
     }
 
-    public int[] getRandomStart(int numPlayers){
+    public int[] getRandomStart(int numPlayers) {
         int[] temp;
         int[] Start = new int[numPlayers];
 
         //MrX Start
         temp = this.MrXStart;
         Random random = new Random();
-        int number = random.nextInt(temp.length-1);
+        int number = random.nextInt(temp.length - 1);
         Start[0] = temp[number];
-        
+
         //Detective Start
         temp = DetectiveStart;
-        for (int i = 1 ; i<numPlayers; i++){
-            number = random.nextInt(temp.length-1);
-            if (temp[number]!=0){
+        for (int i = 1; i < numPlayers; i++) {
+            number = random.nextInt(temp.length - 1);
+            if (temp[number] != 0) {
                 Start[i] = temp[number];
-            }else{ //If start already taken, try until valid start found
-                while(temp[number]==0){
-                    number = random.nextInt(temp.length-1);
+            } else { //If start already taken, try until valid start found
+                while (temp[number] == 0) {
+                    number = random.nextInt(temp.length - 1);
                     Start[i] = temp[number];
                 }
             }
             temp[number] = 0;
-            
+
         }
 
         return Start;

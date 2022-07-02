@@ -4,25 +4,25 @@ import static android.content.ContentValues.TAG;
 
 import android.util.Log;
 
-import com.example.scotland_yard_board_game.common.Colour;
+import com.example.scotland_yard_board_game.common.Color;
 import com.example.scotland_yard_board_game.common.Station;
 
-public class MrX implements Player {
+public class MisterX implements Player {
     private int id;
     private int conId;
     private String nickname;
     private int[] inventory = {2, 0}; //Double move, Black Tickets
     private Station position;
-    private Colour colour = Colour.BLUE; // Colour.TRANSPARENT ; // todo: change to transparent later
+    private Color color = Color.BLUE; // Colour.TRANSPARENT ; // todo: change to transparent later
     private boolean turn;
     private int moves = 1;
 
     //Kryonet
-    public MrX() {
+    public MisterX() {
     }
 
 
-    public MrX(int clientid, int conId, String nickname) {
+    public MisterX(int clientid, int conId, String nickname) {
         this.id = clientid;
         this.conId = conId;
         this.nickname = nickname;
@@ -68,16 +68,16 @@ public class MrX implements Player {
         return nickname;
     }
 
-    public Colour getColour() {
-        return colour;
+    public Color getColor() {
+        return color;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setColour(Colour colour) {
-        this.colour = colour;
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     public int getmoves() {
