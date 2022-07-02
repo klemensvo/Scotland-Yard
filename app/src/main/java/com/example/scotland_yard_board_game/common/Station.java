@@ -9,8 +9,7 @@ public class Station {
     private int[] undergroundNeighbors;
     private int[] ferryNeighbors;
 
-    public Station() {
-    } // todo: if commented out, GameScreen crashes
+    public Station() {} // todo: if commented out, GameScreen crashes
 
     public Station(int id, int x, int y, int[] taxiNeighbors,
                    int[] busNeighbors, int[] undergroundNeighbors, int[] ferryNeighbors) {
