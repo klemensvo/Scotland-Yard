@@ -59,7 +59,7 @@ public class ServerData {
             }
         }
         for (Player a : clients) {
-            if (a.getConId() == conid) {
+            if (a.getConnectionId() == conid) {
                 a.setColour(colour);
                 server.sendToTCP(conid, new ColourConfirmed());
                 updatePlayerList();
@@ -80,12 +80,12 @@ public class ServerData {
 
     //Validates player moves, triggers refresh of journeyTable and starts next players move
     public void move(int conid, int Stationid, int type, boolean mrx) {
-        for (Player a : clients) {
-            if (a.getConId() == conid && a.getConId() == playerOrder[playerturn]) {
+        for (Player player : clients) {
+            if (player.getConnectionId() == conid && player.getConnectionId() == playerOrder[playerturn]) {
                 Log.d(TAG, Stationid + " " + type);
-                boolean valid = a.validmove(Stationid, type);
+                boolean valid = player.validMove(Stationid, type);
                 if (valid && Stationid != clients.get(0).getPosition().getId()) {
-                    a.setPosition(stationDatabase.getStation(Stationid));
+                    player.setPosition(stationDatabase.getStation(Stationid));
                     updatePlayerList();
                     if (mrx && mrxturns < journeyTable.journeyTable.length) {
                         journeyTable.journeyTable[mrxturns][0] = type;
@@ -101,7 +101,7 @@ public class ServerData {
                 } else {
                     server.sendToTCP(conid, new InvalidMove());
                 }
-            } else if (a.getPosition().getId() == Stationid && !(a instanceof MrX)) {
+            } else if (player.getPosition().getId() == Stationid && !(player instanceof MrX)) {
                 server.sendToTCP(conid, new InvalidMove());
             }
         }
@@ -164,7 +164,7 @@ public class ServerData {
     public void disconnectPlayer(int conid) {
         if (!clients.isEmpty()) {
             for (Player a : clients) {
-                if (a.getConId() == conid) {
+                if (a.getConnectionId() == conid) {
                     clients.remove(a.getId());
                 }
             }
@@ -191,7 +191,7 @@ public class ServerData {
         //Get MrX conid
         for (Player a : clients) {
             if (a instanceof MrX) {
-                playerOrder[0] = a.getConId();
+                playerOrder[0] = a.getConnectionId();
             }
         }
 
@@ -199,7 +199,7 @@ public class ServerData {
         int index = 1;
         for (Player a : clients) {
             if (a instanceof Detective) {
-                playerOrder[index] = a.getConId();
+                playerOrder[index] = a.getConnectionId();
                 index++;
             }
         }

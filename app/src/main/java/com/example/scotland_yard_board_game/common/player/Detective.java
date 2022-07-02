@@ -27,7 +27,7 @@ public class Detective implements Player {
         this.colour = colour;
     }
 
-    public boolean validmove(int stationid, int type) { //Validate if station is neighbour and if sufficient tickets are available
+    public boolean validMove(int stationid, int type) { //Validate if station is neighbour and if sufficient tickets are available
         int[] neighbours = this.position.getNeighbours(type);
         for (int i = 0; i < neighbours.length; i++) {
             if (neighbours[i] == stationid) {
@@ -83,7 +83,7 @@ public class Detective implements Player {
         this.moves = moves;
     }
 
-    public int getConId() {
+    public int getConnectionId() {
         return conId;
     }
 }

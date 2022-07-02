@@ -41,7 +41,7 @@ public class MrX implements Player {
         return position;
     }
 
-    public boolean validmove(int stationid, int type) {
+    public boolean validMove(int stationid, int type) {
         int[] neighbours = this.position.getNeighbours(type);
         Log.d(TAG, String.valueOf(neighbours[0]));
         for (int i = 0; i < neighbours.length; i++) {
@@ -88,7 +88,7 @@ public class MrX implements Player {
         this.moves = moves;
     }
 
-    public int getConId() {
+    public int getConnectionId() {
         return conId;
     }
 }
