@@ -178,7 +178,7 @@ public class GameScreen extends AppCompatActivity implements PopupMenu.OnMenuIte
         clientData.gameStart();
 
         //assign nickname variable to TextView for display
-        MrXNameGameView = findViewById(R.id.MrXNameGameView); //Mr. X
+        MrXNameGameView = findViewById(R.id.misterXNameGameView); //Mr. X
         player2NameGameView = findViewById(R.id.player2NameGameView); //detective/player 1
         //call display method "displayNicknames"
         displayNicknames(clientData.getNicknames());

@@ -510,7 +510,7 @@
             app:layout_constraintVertical_bias="0.134" />
 
         <TextView
-            android:id="@+id/MrXNameGameView"
+            android:id="@+id/misterXNameGameView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nickname"
